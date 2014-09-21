@@ -14,7 +14,7 @@
 
   <script>
     //title!
-    var title="Flows";
+    var title="Pressures";
 
     $(function (){
       document.title=title;
@@ -24,11 +24,10 @@
     function getReportParams(){
       var reportparams={};
       reportparams['incomingDevs']=[];
-      reportparams['incomingDevs'].push('evapFlow');
-      reportparams['incomingDevs'].push('sepFlow');
-      reportparams['incomingDevs'].push('shieldFlow');
-      reportparams['incomingDevs'].push('he3Flow');
+      reportparams['incomingDevs'].push('evapPressureMv110');
+      reportparams['incomingDevs'].push('he3Pressure');
       reportparams['nData']=$("#nData-value").val();
+      reportparams['endTimestamp']="now";
       return reportparams;
     };
   </script>
@@ -38,12 +37,12 @@
   <center><h2><span id="graph-title"></span></h2></center>
 	<div id="content">
 		<div class="graph-container">
-			<div id="placeholder" class="graph-placeholder" style="float:left; width:675px;"></div>
-			<p id="statusboxlist" style="float:right; width:135px;"></p>
+			<div id="placeholder" class="graph-placeholder"></div>
+			<p id="statusboxlist"></p>
 		</div>
     <div id="nData-input-wrapper">
       <span id="nData-preview-text"></span>
-      <input type="hidden" id="nData-value" value="" /> minutes
+      <input type="hidden" id="nData-value" />
     </div>
     <div id="slider"></div>
 	</div>
